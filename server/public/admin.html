@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="styles/admin2.css">
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Panel de Administración</h1>
+        <div class="user-info">
+            <span id="userGreeting"></span>
+            <button id="logoutBtn">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <nav class="admin-sidebar">
+            <ul>
+                <li class="active" data-tab="productos">Productos</li>
+                <li data-tab="usuarios">Usuarios</li>
+                <li data-tab="pedidos">Pedidos</li>
+            </ul>
+        </nav>
+
+        <main class="admin-content">
+            <!-- Sección de Productos -->
+            <div id="productos" class="tab-content active">
+                <h2>Gestión de Productos</h2>
+                <div class="admin-section">
+                    <h3>Agregar Producto</h3>
+                    <form id="agregarProductoForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripción:</label>
+                            <textarea id="descripcion"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio:</label>
+                            <input type="number" id="precio" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock">Stock:</label>
+                            <input type="number" id="stock" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagen_url">URL de Imagen:</label>
+                            <input type="text" id="imagen_url">
+                        </div>
+                        <button type="submit" class="btn-submit">Agregar Producto</button>
+                    </form>
+                </div>
+
+                <div class="admin-section">
+                    <h3>Lista de Productos</h3>
+                    <div id="loadingIndicator" style="display: none;">Cargando...</div>
+                    <table id="productosList">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se cargarán los productos dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sección de Usuarios -->
+            <div id="usuarios" class="tab-content">
+                <h2>Gestión de Usuarios</h2>
+                <div class="admin-section">
+                    <h3>Agregar Usuario</h3>
+                    <form id="agregarUsuarioForm">
+                        <div class="form-group">
+                            <label for="usuarioNombre">Nombre:</label>
+                            <input type="text" id="usuarioNombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioEmail">Email:</label>
+                            <input type="email" id="usuarioEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioPassword">Contraseña:</label>
+                            <input type="password" id="usuarioPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuarioRol">Rol:</label>
+                            <select id="usuarioRol" required>
+                                <option value="ventas">Ventas</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Agregar Usuario</button>
+                    </form>
+                </div>
+
+                <div class="admin-section">
+                    <h3>Lista de Usuarios</h3>
+                    <div id="usuariosLoading" style="display: none;">Cargando...</div>
+                    <table id="usuariosList">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se cargarán los usuarios dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sección de Pedidos -->
+            <div id="pedidos" class="tab-content">
+                <h2>Gestión de Pedidos</h2>
+                <div class="admin-section">
+                    <h3>Todos los Pedidos</h3>
+                    <div id="pedidosLoading" style="display: none;">Cargando...</div>
+                    <div id="pedidosList">
+                        <!-- Aquí se cargarán los pedidos dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para editar producto -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Producto</h2>
+            <form id="editProductoForm">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-nombre">Nombre:</label>
+                    <input type="text" id="edit-nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-descripcion">Descripción:</label>
+                    <textarea id="edit-descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-precio">Precio:</label>
+                    <input type="number" id="edit-precio" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-stock">Stock:</label>
+                    <input type="number" id="edit-stock" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-imagen_url">URL de Imagen:</label>
+                    <input type="text" id="edit-imagen_url">
+                </div>
+                <button type="button" id="guardarEdicionBtn" class="btn-submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/AdminTabs.js"></script>
+    <script src="js/Admin.js"></script>
+    <script src="js/adminUsers.js"></script>
+    <script src="js/adminPedidos.js"></script>
+</body>
+</html>

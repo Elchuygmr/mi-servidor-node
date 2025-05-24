@@ -1,0 +1,140 @@
+/* Estilos generales */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: orange; /* Fondo naranja detrás de la imagen */
+    background-image: url('https://imgur.com/E0dWMFZ.png');
+    background-size: auto 80vh; /* Alto máximo 80% de la pantalla */
+    background-position: center;
+    background-repeat: no-repeat;
+          /* Color de fondo para los bordes vacíos */
+}
+
+/* ...existing code... */
+
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-box {
+    background: transparent; /* Un poco más opaco */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    overflow: hidden;
+    padding: 28px 18px;
+    width: 100%;
+    max-width: 320px;      /* Más pequeño */
+    backdrop-filter: blur(0.5px); /* Mucho menos borroso */
+}
+
+.auth-box, .auth-box * {
+    color: #003366 !important; /* Azul oscuro */
+    text-shadow:
+        -1px -1px 0 #fff,
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff; /* Contorno blanco */
+}
+.auth-header {
+    background-color: transparent;
+    color: transparent;
+    padding: 20px;
+    text-align: center;
+}
+
+.auth-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+/* Pestañas */
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid transparent;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: transparent;
+    color: transparent;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+}
+
+/* Contenido de las pestañas */
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Formularios */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.btn-auth {
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-auth:hover {
+    background-color: transparent;
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}

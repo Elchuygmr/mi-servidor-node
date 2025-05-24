@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pedido</title>
+    <link rel="stylesheet" href="styles/pedidos.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Realizar Pedido</h1>
+            <div class="user-info">
+                <span id="userGreeting"></span>
+                <button id="logoutBtn" class="btn-logout">Cerrar sesión</button>
+            </div>
+        </header>
+        
+        <section class="pedidos-historial">
+            <h2>Mis Pedidos Anteriores</h2>
+            <div id="pedidosUsuario" class="pedidos-grid"></div>
+        </section>
+        
+        <section class="form-section">
+            <form id="pedidoForm" class="pedido-form">
+                <h3>Productos en el pedido:</h3>
+                <ul id="listaPedido" class="lista-pedido"></ul>
+                <p id="total" class="total-pedido">Total: $0</p>
+                <button type="submit" class="btn btn-confirmar">Confirmar Pedido</button>
+            </form>
+        </section>
+        
+        <section class="productos-section">
+            <h2>Productos Disponibles</h2>
+            <div id="productosContainer" class="productos-grid"></div>
+        </section>
+        
+        <section class="stock-section">
+            <h2>Stock Actual</h2>
+            <ul id="stockList" class="stock-list"></ul>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+    <script src="js/Pedidos.js"></script>
+</body>
+</html>
