@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const BASE_URL = 'http://localhost:3000';
+    const BASE_URL = 'https://mi-servidor-node-8fas.onrender.com';
     const agregarProductoForm = document.getElementById("agregarProductoForm");
     const productosList = document.getElementById("productosList");
     const loadingIndicator = document.getElementById("loadingIndicator");
